@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Commenting &amp; collaboration
 :description: Comments 2.0 provides the ability to add comments to the content and collaborate with other users for content editing.
@@ -35,7 +34,7 @@ The Comments 2.0 plugin allows the user to perform the following functions:
 [[try-our-comments-plugin-demo]]
 == Try our Comments plugin demo
 
-{% include codepen.html id="comments-2" %}
+codepen::comments-2[]
 
 :pluginname: Comments
 :pluginminimumplan: enterprise

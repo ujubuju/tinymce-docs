@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Mentions
 :description: Mentions brings social sharing to TinyMCE.
@@ -22,7 +21,7 @@ Mentions is available for download through link:{rootDir}cloud-deployment-guide/
 [[try-our-mentions-plugin-demo]]
 === Try our Mentions plugin demo
 
-{% include codepen.html id="mentions" height="400" %}
+codepen::mentions[height=400]
 
 :pluginname: Mentions
 :pluginminimumplan: enterprise

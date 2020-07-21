@@ -1,6 +1,5 @@
 :rootDir: ../../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Troubleshoot server-side components
 :description: Debug problems with the Enterprise server-side components.
@@ -54,7 +53,7 @@ If the server is not running on a standard HTTP or HTTPS port (80 or 443) then C
 . If the response for the version URL is still 404, it means the service has not been started or installed correctly.
 . To check the "Origin" value that the browser uses, open the network tools (Chrome in this screenshot) and refresh the page. Then enter a couple of words in the editor and select one of the requests on the bottom left ('correction' in the screen shot) and select the 'Headers' section. Look for the 'Origin' header value.
 
-image::{rootDir}/images/spell-checking-browser-tools.png[Using browser tools to investigate services issues]
+image::spell-checking-browser-tools.png[Using browser tools to investigate services issues]
 
 NOTE: The value of the Origin header sent by the must match the origin specified in the `application.conf` server configuration. If it does not match, you must make the server configuration match the browser.
 
@@ -80,13 +79,15 @@ For example, if you are using Tomcat, you can view how much memory is being cons
 
 On a vanilla install this is done by editing the file /tomcat/install/directory/conf/tomcat-users.xml adding these lines in:
 
-```xml+++<role rolename="manager-gui">++++++</role>++++++<user username="tomcat" password="password" roles="manager-gui">++++++</user>+++
-
-```
+[source,xml]
+----
+<role rolename="manager-gui" />
+<user username="tomcat" password="password" roles="manager-gui"/>
+----
 
 Then, restart the server and go to a browser and open the default tomcat page `+http://localhost:8080+`. On the top right hand side are three buttons, the first of which should be "Server Status". Click that link, login with the details you set above and you should be able to see the memory consumption (see the figure below for an example).
 
-image::{rootDir}/images/spell-checking-server_status.png[Spell Checking Server Status]
+image::spell-checking-server_status.png[Spell Checking Server Status]
 
 [[to-increase-the-amount-of-memory]]
 === To increase the amount of memory
@@ -98,20 +99,22 @@ Edit the setenv.sh (Unix) or setenv.bat (Windows) to read as follows:
 
 On Windows, please prefix each line with 'set' and remove the quotes . So the configuration would look like:
 
-```
+[source]
+----
 set CATALINA_OPTS= -Dephox.config.file=/config/file/location/application.conf
 set JAVA_OPTS= -Xms2048m -Xmx2048m -XX:PermSize=64m -XX:MaxPermSize=512m -Dfile.encoding=utf-8 -Djava.awt.headless=true -XX:+UseParallelGC -XX:MaxGCPauseMillis=100
 
 CATALINA_OPTS=" -Dephox.config.file=/config/file/location/application.conf
 JAVA_OPTS=" -Xms2048m -Xmx2048m -XX:PermSize=64m -XX:MaxPermSize=512m -Dfile.encoding=utf-8 -Djava.awt.headless=true -XX:+UseParallelGC -XX:MaxGCPauseMillis=100"
-```
+----
 
 [[jetty]]
 ==== Jetty
 
 Edit the start.ini file to read as follows:
 
-`+
+[source]
+----
 #===========================================================
 # Jetty start.jar arguments
 # Each line of this file is prepended to the command line
@@ -119,11 +122,11 @@ Edit the start.ini file to read as follows:
 # java -jar start.jar [arg...]
 #===========================================================
 -Xms2048m -Xmx2048m -XX:PermSize=64m -XX:MaxPermSize=512m -Dephox.config.file=/config/file/location/application.conf
-+`
+----
 
 Restart the service and confirm the settings have been applied like so:
 
-image::{rootDir}/images/spell-checking-jetty-settings.png[Spell Checking Server Settings on Jetty]
+image::spell-checking-jetty-settings.png[Spell Checking Server Settings on Jetty]
 
 [[troubleshooting-tools-curl]]
 == Troubleshooting tools: curl
@@ -151,19 +154,19 @@ Once downloaded:
 
 . Unzip the package like so:
 +
-image::{rootDir}/images/spell-checking-curl-windows-1.png[Curl on Windows step 1]
+image::spell-checking-curl-windows-1.png[Curl on Windows step 1]
 
 . Copy the path of the folder to where the 'curl.exe' is in:
 +
-image::{rootDir}/images/spell-checking-curl-windows-2.png[Curl on Windows step 2]
+image::spell-checking-curl-windows-2.png[Curl on Windows step 2]
 
 . Open a cmd prompt. Start \-> Programs \-> Accessories \-> cmd (or command prompt). Then change to that directory to the folder where the 'curl.exe' is found.Enter 'cd' (without quotes) and then paste in the path from step 2.
 +
-image::{rootDir}/images/spell-checking-curl-windows-3.png[Curl on Windows step 3]
+image::spell-checking-curl-windows-3.png[Curl on Windows step 3]
 
 . Once in the folder enter 'curl --version' (without quotes) and ensure you get a valid version
 +
-image::{rootDir}/images/spell-checking-curl-windows-4.png[Curl on Windows step 4]
+image::spell-checking-curl-windows-4.png[Curl on Windows step 4]
 
 [[need-more-help]]
 == Need more help?

@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Dialog
 :description: An overview of TinyMCE dialogs and how to create custom dialogs.
@@ -22,14 +21,14 @@ NOTE: {productname} also supports link:{rootDir}ui-components/urldialog.html[URL
 
 The link:{rootDir}plugins/code[`code`] plugin's dialog is an example of a simple dialog. It contains only one body panel component that displays the HTML code from the content.
 
-image::{rootDir}/images/sourcecode.png[Source Code]
+image::sourcecode.png[Source Code]
 
 [[display-complex-information]]
 ==== Display complex information
 
 More complex dialogs can use link:{rootDir}ui-components/dialogcomponents.html#tabpanel[tab panels] and various link:{rootDir}ui-components/dialogcomponents.html#layoutcomponents[layouts] to categorise and organise information displayed to the user. For example, the link:{rootDir}plugins/help[`help`] and link:{rootDir}plugins/charmap[`character map`] plugins use dialogs with tabbed panels to categorise and separate information.
 
-image::{rootDir}/images/specialchars.png[Special Characters]
+image::specialchars.png[Special Characters]
 
 [[interactive-dialogs]]
 ==== Interactive dialogs
@@ -38,7 +37,7 @@ image::{rootDir}/images/specialchars.png[Special Characters]
 
 For example, the link:{rootDir}plugins/image[`image`] plugin's dialog allows for users to link to or upload an image, input a description, title, class, caption, height and width, then insert it into the editor.
 
-image::{rootDir}/images/interactive.png[Insert/Edit images]
+image::interactive.png[Insert/Edit images]
 
 [[dialog-configuration]]
 == Dialog configuration
@@ -54,7 +53,8 @@ A dialog configuration has three main parts to match the three main parts of the
 
 The configuration for a basic dialog that displays HTML information might look like this:
 
-`js
+[source,js]
+----
 tinymce.activeEditor.windowManager.open({
   title: 'Dialog Title', // The dialog's title - displayed in the dialog header
   body: {
@@ -73,7 +73,7 @@ tinymce.activeEditor.windowManager.open({
     }
   ]
 });
-`
+----
 
 [[configuration-options]]
 === Configuration options
@@ -92,7 +92,7 @@ tinymce.activeEditor.windowManager.open({
 | The specification for the <<bodycomponents,body component>>.
 
 | buttons
-| FooterButton[]
+| `FooterButton[]`
 | required
 | An array of <<footerbuttons,footer buttons>> to render in the footer of the dialog.
 
@@ -132,7 +132,7 @@ tinymce.activeEditor.windowManager.open({
 | Function invoked when the dialog is closed. The dialog header's close button, a *Cancel* type footer button and the dialog instance API's `close()` method invoke this function.
 
 | onTabChange
-| `(dialogApi, details)` \=> void
+| `+(dialogApi, details) => void+`
 | optional
 | *This method only applies to link:{rootDir}ui-components/dialogcomponents.html#tabpanel[tab panel] dialogs.* Function invoked when the user changes tabs. `details` is an object that contains `newTabName` and `oldTabName`.
 |===
@@ -158,12 +158,13 @@ NOTE: {productname} also supports link:{rootDir}ui-components/urldialog.html[URL
 
 The basic dialog type is a *panel* dialog. A panel is a container for link:{rootDir}ui-components/dialogcomponents.html#panelcomponents[panel components]. A panel type dialog only has one panel.
 
-`+js
+[source,js]
+----
 {
   type: 'panel',
   items: [ ... ] // array of panel components
 }
-+`
+----
 
 [[tabpanel]]
 ==== TabPanel
@@ -172,7 +173,8 @@ A *tabpanel* dialog contains multiple panels, and a tab navigation menu on the l
 
 See the link:{rootDir}ui-components/dialogcomponents.html#tabpanel[tab panel component reference] for tab panel configuration options.
 
-`+js
+[source,js]
+----
 {
   type: 'tabpanel',
   tabs: [ // array of tab panel specifications
@@ -184,7 +186,7 @@ See the link:{rootDir}ui-components/dialogcomponents.html#tabpanel[tab panel com
     ...
   ]
 }
-+`
+----
 
 The `name` of the panel can be used with the <<dialogapimethods,`dialogApi.showTab('tabName')`>> method to programmatically switch tabs. It is also passed to <<configurationoptions,`onTabChange`>> as part of the `details` object.
 
@@ -193,7 +195,7 @@ The `name` of the panel can be used with the <<dialogapimethods,`dialogApi.showT
 
 The Help plugin's dialog is an example of a tab panel dialog.
 
-image::{rootDir}/images/help.png[Help Button]
+image::help.png[Help Button]
 
 [[footer-buttons]]
 === Footer buttons
@@ -266,7 +268,8 @@ See the <<configurationoptions,dialog configuration options>> documentation for 
 [[example-dialog-footer-button]]
 ===== Example: Dialog footer button
 
-`js
+[source,js]
+----
 {
   type: 'submit', // button type
   name: 'submitButton', // identifying name
@@ -276,7 +279,7 @@ See the <<configurationoptions,dialog configuration options>> documentation for 
   primary: true, // style the button as a primary button
   align: 'start' // align the button to the left of the dialog footer
 }
-`
+----
 
 [[dialog-menu-buttons]]
 ===== Dialog menu buttons
@@ -352,7 +355,8 @@ The following options can be specified for a dialog menu button _item_:
 [[example-dialog-footer-menu-button]]
 ====== Example: Dialog footer menu button
 
-`js
+[source,js]
+----
 buttons: [
   {
     type: 'menu', // button type
@@ -376,7 +380,7 @@ buttons: [
     ]
   }
 ]
-`
+----
 
 [[dialog-instance-api]]
 == Dialog instance API
@@ -456,7 +460,7 @@ See the <<interactiveexampleusingredial,redial example>> for more information on
 
 The following example demonstrates how data flows through the dialog and how buttons are configured. This is an interactive dialog that inserts the name of a cat into the editor content on submit.
 
-{% include codepen.html id="dialog-pet-machine" height="150" tab="js" %}
+codepen::dialog-pet-machine[height=150,tab=js]
 
 The dialog in this example contains two interactive components - an input component named `catdata` and a checkbox component named `isdog`. These names are used in the `initialdata` configuration property to set the initial values for these components. In this case, when the dialog loads the input will contain the text _initial Cat_ and the checkbox will not be checked.
 
@@ -473,7 +477,7 @@ The following example demonstrates one way of implementing a multipage form dial
 
 To see the output of the code, click on the {productname} tab on the fiddle below.
 
-{% include codepen.html id="redial" height="900" tab="js" %}
+codepen::redial[height=900,tab=js]
 
 The example JavaScript code contains two dialog configurations - `page1Config` and `page2Config`. The {productname} initialisation code adds a button to the editor that when clicked calls `editor.windowManager.open(page1Config)` to open a dialog using the first configuration.
 

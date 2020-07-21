@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Advanced Tables plugin
 :description: Add sorting functionality to tables.
@@ -21,11 +20,12 @@ The `advtable` plugin is a premium plugin that extends the core link:{rootDir}pl
 |===
 | Sort rows based on the selected column | Advanced Sort Dialog
 
-| image:{imagesDir}advtable_context_menu_sort.png[Advanced Tables enhanced contextual menu for sorting rows based on the selected Column (Sort > Sort table by column ascending/descending).]
-| image:{imagesDir}advtable_dialog_sort.png[Advanced Tables sort dialog (Sort > Advanced Sort{ellps}).]
+| image:advtable_context_menu_sort.png[Advanced Tables enhanced contextual menu for sorting rows based on the selected Column (Sort > Sort table by column ascending/descending).]
+| image:advtable_dialog_sort.png[Advanced Tables sort dialog (Sort > Advanced Sort{ellps}).]
 |===
 
 The plugin is capable of sorting:
+
 * Numerical data
 * Text data
 
@@ -36,12 +36,13 @@ NOTE: Currently, the sort function will treat cells with Alphanumeric data as Te
 
 To enable the Advanced Tables plugin, add `advtable` to the list of plugins. For example:
 
-`js
+[source,js]
+----
 tinymce.init({
   plugins: 'table advtable',
   menubar: 'table'
 });
-`
+----
 
 [[commands]]
 == Commands

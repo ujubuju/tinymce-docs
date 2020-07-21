@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Tiny Drive plugin
 :description: Cloud-based file and image management for TinyMCE.
@@ -18,18 +17,19 @@ Once you enable {cloudfilemanager} it integrates as the default file picker for 
 [[live-example]]
 == Live example
 
-{% include codepen.html id="drive" %}
+codepen::drive[]
 
 [[example]]
 === Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',  // change this value according to your html
   plugins: 'tinydrive',
   tinydrive_token_provider: 'URL_TO_YOUR_TOKEN_PROVIDER'
 });
-`
+----
 
 [[configuration]]
 === Configuration

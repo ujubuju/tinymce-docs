@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Boilerplate content CSS
 :description: Learn how to set up CSS for your site to integrate TinyMCE.
@@ -12,7 +11,8 @@ There are advanced features in {productname} that require some CSS to be added t
 
 This Boilerplate CSS can be used to style these advanced elements. This CSS file can be used within the editor using the link:{rootDir}configure/content-appearance.html#content_css[content_css] option and also on your page where the saved content is presented.
 
-```css
+[source,css]
+----
 /* Image captions using the HTML5 figure element */
 figure.align-left {
     float: left;
@@ -75,4 +75,4 @@ __/
 /* Override styles for the inline boundaries used within the editor _/
 /_ .mce-content-body *[data-mce-selected="inline-boundary"] {...} */
 
-```
+----

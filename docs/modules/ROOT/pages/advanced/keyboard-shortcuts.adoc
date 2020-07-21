@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Keyboard shortcuts
 :description: Complete list of keyboard shortcuts.
@@ -224,4 +223,4 @@ include::{partialsDir}misc/shortcut-os-mappings.adoc[leveloffset=+1]
 [discrete#example-custom-keyboard-shortcut]
 === Example: Custom keyboard shortcut
 
-{% include codepen.html id="custom-shortcut" tab="js" %}
+codepen::custom-shortcut[tab=js]

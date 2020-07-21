@@ -1,6 +1,5 @@
 :rootDir: ../../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Premium Skins and Icon Packs demo
 :description: Borderless Demo
@@ -9,4 +8,4 @@ include::{rootDir}_attributes.adoc[]
 
 This demo uses the borderless skin. It's the default {productname} skin but without the outer border. This is useful if you want to use the editor "fullscreen" like a word processor or if you want to provide your own outer borders.
 
-{% include codepen.html id="premiumskinsandicons-borderless" %}
+codepen::premiumskinsandicons-borderless[]

@@ -21,18 +21,20 @@ Please note, the language code you set in your {productname} configuration must 
 
 In this example we will set the editor language to Swedish.
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',  // change this value according to your HTML
   language: 'sv_SE'
 });
-`
+----
 
 The available language codes for use with this option are as follows:
 
-[cols="<,^,^"]
+[cols="<.^40,^.^40,^.^20",options="header"]
 |===
-| Language | Code | {cloudname} /{newline}{enterpriseversion}
+| Language | Code | {cloudname} / +
+{enterpriseversion}
 
 | Arabic
 | ar
@@ -148,7 +150,8 @@ The available language codes for use with this option are as follows:
 
 | Greek
 | el
-| {tick} (Support added in {productname} 5.3)
+| {tick} +
+(Support added in {productname} 5.3)
 
 | Hebrew (Israel)
 | he_IL

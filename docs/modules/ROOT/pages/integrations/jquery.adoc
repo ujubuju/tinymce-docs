@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = jQuery integration
 :description: Documentation for the official TinyMCE jQuery integration.
@@ -25,10 +24,10 @@ If the project loads jQuery from \https://code.jquery.com/, use the script provi
 +
 To source {productname} and the {productname} jQuery integration from the {cloudname}, add the following `script` elements:
 +
-[source,html]
+[source,html,subs="+attributes"]
 ----
 <script src="{cdnurl}" referrerpolicy="origin"></script>
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
+<script src="{basecdnurl}jquery.tinymce.min.js" referrerpolicy="origin"></script>
 ----
 +
 Replace `no-api-key` in the source script (`+<script src=...+`) with a {cloudname} API key, which is created when signing up to the link:{accountsignup}[{cloudname}].
@@ -59,7 +58,7 @@ For information on self-hosting {productname}, see: link:{rootDir}general-config
 +
 [source,html]
 ----
- <script>
+<script>
    $('textarea#tiny').tinymce({    });
  </script>
 ----
@@ -69,7 +68,7 @@ For information on self-hosting {productname}, see: link:{rootDir}general-config
 
 To load a TinyMCE editor similar to the link:{rootDir}demo/basic-example.html[Basic example], add the following code to an empty HTML file.
 
-[source,js]
+[source,html,subs="+attributes"]
 ----
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +77,7 @@ To load a TinyMCE editor similar to the link:{rootDir}demo/basic-example.html[Ba
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{cdnurl}" referrerpolicy="origin"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{basecdnurl}jquery.tinymce.min.js" referrerpolicy="origin"></script>
   </head>
   <body>
     <div>

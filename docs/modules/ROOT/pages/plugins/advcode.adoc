@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Advanced Code Editor plugin
 :controls: toolbar button, menu item
@@ -17,13 +16,14 @@ If you are using Advanced Code Editor `advcode` plugin, make sure you do not use
 [[example]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: "textarea",  // change this value according to your HTML
   plugins: "advcode",
   toolbar: "code"
 });
-`
+----
 
 [[commands]]
 == Commands

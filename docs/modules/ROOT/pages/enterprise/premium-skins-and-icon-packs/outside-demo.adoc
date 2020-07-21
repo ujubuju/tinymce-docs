@@ -1,6 +1,5 @@
 :rootDir: ../../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Premium Skins and Icon Packs demo
 :description: Outside Demo
@@ -11,4 +10,4 @@ This demo uses the Outside skin. The Outside skin completely removes outside bor
 
 The example below uses the small icon pack.
 
-{% include codepen.html id="premiumskinsandicons-outside" %}
+codepen::premiumskinsandicons-outside[]

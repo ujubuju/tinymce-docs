@@ -1,6 +1,5 @@
 :rootDir:
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Migrating from Froala to TinyMCE
 :description: Upgrading your rich text editor from Froala Editor v3 to TinyMCE 5.
@@ -35,17 +34,17 @@ For example:
 +
 [source,html]
 ----
- <link href='/path/to/froala-editor/base/directory/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
- <script type='text/javascript' src='/path/to/froala-editor/base/directory/js/froala_editor.pkgd.min.js'></script>
- <link href='/path/to/froala-editor/base/directory/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+<link href='/path/to/froala-editor/base/directory/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+<script type='text/javascript' src='/path/to/froala-editor/base/directory/js/froala_editor.pkgd.min.js'></script>
+<link href='/path/to/froala-editor/base/directory/css/froala_style.min.css' rel='stylesheet' type='text/css' />
 ----
 
 . Insert a {productname} source script into the `<head>` of the page.
  ** For {cloudname} deployments:
 +
-[source,html]
+[source,html,subs="+attributes"]
 ----
-<script src='https://cdn.tiny.cloud/1/your-api-key/tinymce/5/tinymce.min.js' referrerpolicy='origin'></script>
+<script src='{cdnurl}' referrerpolicy='origin'></script>
 ----
 +
 Replace `your-api-key` with your link:{accountpageurl}[{cloudname} API key].
@@ -305,7 +304,7 @@ The following examples show a custom toolbar layout in Froala and the same layou
 [[tinymce-5-creating-a-custom-toolbar-layout]]
 ==== TinyMCE 5 - Creating a Custom Toolbar Layout
 
-[source,html]
+[source,html,subs="+attributes"]
 ----
 <h2>{productname} Custom Toolbar</h2>
   <form method='post'>
@@ -363,9 +362,9 @@ The following examples show Froala and {productname} configured for inline mode.
 [[tinymce-5-configuring-inline-mode]]
 ==== TinyMCE 5 - Configuring Inline Mode
 
-[source,html]
+[source,html,subs="+attributes"]
 ----
-<h3>TinyMCE Inline Mode</h3>
+<h3>{productname} Inline Mode</h3>
   <form method='post'>
     <div id='tiny_custom_inline_toolbar'>Hello, World! I'm a tiny editor!</div>
   </form>
@@ -441,7 +440,7 @@ The following examples show a Froala editor and a {productname} editor with a ba
 [[tinymce-5-creating-a-custom-toolbar-button]]
 ==== TinyMCE 5 - Creating a Custom Toolbar Button
 
-[source,html]
+[source,html,subs="+attributes"]
 ----
 <h2>{productname} Custom Button</h2>
   <form method='post'>
@@ -526,7 +525,7 @@ The following examples show a Froala editor and a {productname} editor with a ba
 [[tinymce-5-creating-a-custom-drop-down-button]]
 ==== TinyMCE 5 - Creating a Custom Drop-down Button
 
-[source,html]
+[source,html,subs="+attributes"]
 ----
 <h2>{productname} Custom Drop-down Button</h2>
   <form method='post'>

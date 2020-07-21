@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Case Change
 :controls: toolbar button, menu item
@@ -48,7 +47,7 @@ The *Title Case* can be used for the following editor elements:
 [[try-our-case-change-demo]]
 == Try our Case Change demo
 
-{% include codepen.html id="casechange" %}
+codepen::casechange[]
 
 :pluginname: Case Change
 :pluginminimumplan: tiertwo

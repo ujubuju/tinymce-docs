@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = TinyMCE 5.2
 :description: Release notes for TinyMCE 5.2
@@ -48,7 +47,7 @@ For information on the `toolbar_mode` option, see: link:{rootDir}configure/edito
 
 The new `toolbar_groups` setting and `addGroupToolbarButton` registry API can be used to create a toolbar button that displays a collection of other toolbar buttons in a pop-up.
 
-image::{rootDir}/images/toolbar-group-example.png[**Group toolbar button example**]
+image::toolbar-group-example.png[**Group toolbar button example**]
 
 For information on using the `toolbar_groups` setting, see: link:{rootDir}configure/editor-appearance.html#toolbar_groups[User interface options - `toolbar_groups`].
 For information on using the `addGroupToolbarButton` API, see: link:{rootDir}ui-components/typesoftoolbarbuttons.html#grouptoolbarbutton[Types of toolbar buttons - Group button].
@@ -71,8 +70,9 @@ For information on using the `placeholder` setting, see: link:{rootDir}configure
 === New option to assist with marking images as decorative for accessibility purposes
 
 The `a11y_advanced_options` setting adds an option to set an image as decorative in the following dialogs:
-- The _Insert/Edit Image_ dialog.
-- The _Accessibility Checker error_ dialog for images without alternative text or the `role="presentation"` attribute.
+
+* The _Insert/Edit Image_ dialog.
+* The _Accessibility Checker error_ dialog for images without alternative text or the `role="presentation"` attribute.
 
 For information on the `a11y_advanced_options`, including the impact on the `a11ychecker_allow_decorative_images` setting, see:
 
@@ -299,23 +299,25 @@ NOTE: This issue will be resolved with the release of {productname} 5.2.1.
 
 If the editor is set to `inline: true`, and `toolbar_drawer` or `toolbar_mode` is set to `'floating'`, such as:
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   inline: true,
   toolbar_drawer: 'floating'
 });
-`
+----
 
 or
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   inline: true,
   toolbar_mode: 'floating'
 });
-`
+----
 
 The floating component of the toolbar will disconnect from the primary toolbar when additional content is added to the editor, causing the content area to resize (such as adding new lines).
 
@@ -347,13 +349,14 @@ No known workaround at the time of release.
 
 Inline dialogs, such as the _Search and Replace dialog_ and the _Accessibility Checker dialog_, will be positioned incorrectly when sticky toolbar and the bottom toolbar are used together. For example:
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   toolbar_sticky: true,
   toolbar_location: 'bottom'
 });
-`
+----
 
 Custom inline dialogs are also affected.
 

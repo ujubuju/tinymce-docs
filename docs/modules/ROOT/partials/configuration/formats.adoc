@@ -13,13 +13,14 @@ If a format is specified with an array of variants, when the format is applied o
 
 The following is an example of an array of format specification that contains three variants:
 
-`js
+[source,js]
+----
 bold: [
-     { inline: 'strong', remove: 'all' },
-     { inline: 'span', styles: { fontWeight: 'bold' } },
-     { inline: 'b', remove: 'all' }
-   ],
-`
+  { inline: 'strong', remove: 'all' },
+  { inline: 'span', styles: { fontWeight: 'bold' } },
+  { inline: 'b', remove: 'all' }
+],
+----
 
 [[style-merging]]
 === Style merging
@@ -46,7 +47,8 @@ All three format types can be used with the `formats` configuration option. They
 
 For example, these two configurations are equivalent:
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -58,9 +60,10 @@ tinymce.init({
     { title: 'My heading', format: 'h1' }
   ]
 });
-`
+----
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   style_formats: [
@@ -68,7 +71,7 @@ tinymce.init({
     { title: 'My heading', block: 'h1', classes: 'heading' }
   ]
 });
-`
+----
 
 A registered format can also be used by name with the built-in link:{rootDir}api/tinymce/tinymce.formatter[formatter] methods. See link:{rootDir}configure/content-formatting.html#usingcustomformats[/configure/content-formatting/#usingcustomformats] for an example.
 
@@ -82,7 +85,8 @@ Tag name of the block element to use as a wrapper, for example, `h1`. Existing b
 [[example]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -90,7 +94,7 @@ tinymce.init({
     h1: { block: 'h1', classes: 'heading' }
   }
 });
-`
+----
 
 [[inline]]
 ==== inline
@@ -102,7 +106,8 @@ Tag name of the inline element to use as a wrapper, for example, `span` is used 
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -110,7 +115,7 @@ tinymce.init({
     bold: { inline: 'span', classes: 'bold' }
   }
 });
-`
+----
 
 [[selector]]
 ==== selector
@@ -122,7 +127,8 @@ CSS3 selector pattern that is used to find elements within the selection. It can
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -133,7 +139,7 @@ tinymce.init({
     alignjustify: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'full' }
   }
 });
-`
+----
 
 [[format-parameters]]
 === Format parameters
@@ -150,7 +156,8 @@ Space-separated list of classes that are applied to the selected or newly create
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -158,7 +165,7 @@ tinymce.init({
     bold: { inline: 'span', classes: 'bold' }
   }
 });
-`
+----
 
 [[styles]]
 ==== styles
@@ -170,7 +177,8 @@ Key/value object with CSS styles to apply to the selected or newly created inlin
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -178,7 +186,7 @@ tinymce.init({
     bold: { inline: 'span', styles: { 'font-weight': 'bold' } }
   }
 });
-`
+----
 
 [[attributes]]
 ==== attributes
@@ -190,7 +198,8 @@ Key/value object with attributes to apply to the selected or newly created inlin
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -198,7 +207,7 @@ tinymce.init({
     bold: { inline: 'strong', attributes: { 'data-style': 'bold' } }
   }
 });
-`
+----
 
 [[exact]]
 ==== exact
@@ -212,7 +221,8 @@ Makes sure that the format is not merged with other wrappers having the same for
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -221,7 +231,7 @@ tinymce.init({
     strikethrough: { inline: 'span', styles: { 'text-decoration': 'line-through' }, exact: true }
   }
 });
-`
+----
 
 [[wrapper]]
 ==== wrapper
@@ -235,7 +245,8 @@ States that the format is a container format for block elements. For example, a 
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -243,7 +254,7 @@ tinymce.init({
     'custom-wrapper': { block: 'div', classes: 'wrapper', wrapper: true }
   }
 });
-`
+----
 
 [[remove]]
 ==== remove
@@ -263,7 +274,8 @@ This can be set to three different modes:
 [[example-2]]
 ===== Example
 
-```js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   extended_valid_elements: 'span[*]', // Needed to retain spans without attributes these are removed by default
@@ -272,14 +284,15 @@ tinymce.init({
       // Configures `clear formatting` to remove specified elements regardless of its attributes
       { selector: 'b,strong,em,i,font,u,strike', remove: 'all' },
 
-....
-  // Configures `clear formatting` to remove the class red from spans and if the element then becomes empty i.e has no attributes it gets removed
-  { selector: 'span', classes: 'red', remove: 'empty' },
+      // Configures `clear formatting` to remove the class red from spans and if the element then becomes empty i.e has no attributes it gets removed
+      { selector: 'span', classes: 'red', remove: 'empty' },
 
-  // Configures `clear formatting` to remove the class green from spans and if the element then becomes empty it's left intact
-  { selector: 'span', classes: 'green', remove: 'none' }
-]   } }); ```
-....
+      // Configures `clear formatting` to remove the class green from spans and if the element then becomes empty it's left intact
+      { selector: 'span', classes: 'green', remove: 'none' }
+    ]
+  }
+});
+----
 
 [[block_expand]]
 ==== block_expand
@@ -293,7 +306,8 @@ So if the selection is from _a_ to _b_ in this html contents `<h1><b>[a</b></h1>
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -318,7 +332,7 @@ tinymce.init({
     ]
   }
 });
-`
+----
 
 [[deep]]
 ==== deep
@@ -332,7 +346,8 @@ Enables control for removing the child elements of the matching format. This is 
 [[example-2]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',
   formats: {
@@ -340,7 +355,7 @@ tinymce.init({
     'custom-deep': { inline: 'span', classes: 'myclass', deep: false }
   }
 });
-`
+----
 
 [[example-of-usage-of-the-formats-option]]
 === Example of usage of the formats option
@@ -352,7 +367,8 @@ This example overrides some of the built-in formats and tells {productname} to a
 [discrete#example-2]
 ===== Example
 
-`js
+[source,js]
+----
 // Output elements in HTML style
 tinymce.init({
   selector: 'textarea',  // change this value according to your html
@@ -370,33 +386,35 @@ tinymce.init({
     custom_format: { block: 'h1', attributes: { title: 'Header' }, styles: { color: 'red' } }
   }
 });
-`
+----
 
 [[using-custom-formats]]
 === Using custom formats
 
 Custom formats can be handled through the {productname} API. Here is a basic example of usage for the custom format defined above.
 
-```js
+[source,js]
+----
 // Applying the specified format
 tinymce.activeEditor.formatter.apply('custom_format');
 
 // Removing the specified format
 tinymce.activeEditor.formatter.remove('custom_format');
-```
+----
 
 [[variable-substitution]]
 === Variable substitution
 
 Variables can be used in the format definition. These variables are then replaced with the ones specified in the call to the apply function. Here is an example of how to use variables within formats.
 
-```js
+[source,js]
+----
 // Registering the special format with a variable
 tinymce.activeEditor.formatter.register('custom_format', { inline: 'span', styles: { color: '%value' } });
 
 // Applying the specified format with the variable specified
 tinymce.activeEditor.formatter.apply('custom_format', { value: 'red' });
-```
+----
 
 [[removing-a-format]]
 === Removing a format
@@ -408,7 +426,8 @@ Use the `removeformat` option to specify how the `clear formatting` feature shou
 [discrete#example-2]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: 'textarea',  // change this value according to your HTML
   formats: {
@@ -426,4 +445,4 @@ tinymce.init({
     ]
   }
 });
-`
+----

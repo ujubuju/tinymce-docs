@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Basic example
 :description: This example contains the plugins needed for the most common use cases.
@@ -13,4 +12,4 @@ include::{rootDir}_attributes.adoc[]
 
 This example contains the plugins needed for the most common use cases.
 
-{% include codepen.html id="basic-example" %}
+codepen::basic-example[]

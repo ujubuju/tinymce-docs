@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Custom sidebar
 :description: A short introduction to creating sidebars.
@@ -70,7 +69,8 @@ The `element():HTMLElement` function returns the root element of the sidebar pan
 [[example-inside-the-tinymce-init]]
 == Example inside the tinymce.init
 
-`+js
+[source,js]
+----
 tinymce.init({
   ...
   toolbar: "mysidebar",
@@ -91,12 +91,13 @@ tinymce.init({
     });
   }
 });
-+`
+----
 
 [[example-inside-a-tinymce-plugin]]
 == Example inside a TinyMCE plugin
 
-`js
+[source,js]
+----
 tinymce.PluginManager.add('myplugin', function (editor) {
   editor.ui.registry.addSidebar('mysidebar', {
     tooltip: 'My sidebar',
@@ -113,4 +114,4 @@ tinymce.PluginManager.add('myplugin', function (editor) {
     }
   });
 });
-`
+----

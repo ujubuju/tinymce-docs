@@ -1,6 +1,5 @@
 :rootDir: ../../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Premium Skins and Icon Packs demo
 :description: Naked Demo
@@ -11,4 +10,4 @@ This demo uses the Naked skin. The Naked skin completely removes outside borders
 
 The example below uses the small icon pack and a custom editor frame.
 
-{% include codepen.html id="premiumskinsandicons-naked" %}
+codepen::premiumskinsandicons-naked[]

@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Tiny Drive Introduction
 :description: Introduction of what Tiny Drive is and its capabilities
@@ -49,7 +48,7 @@ The storage and bandwidth quota varies based upon the link:{pricingpage}[{cloudn
 
 Here is a quick demo on how {cloudfilemanager} integrates with {productname}.
 
-{% include codepen.html id="drive-demo" %}
+codepen::drive-demo[]
 
 [[upload-files-url]]
 == Upload files URL

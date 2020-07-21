@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Permanent Pen plugin
 :controls: toolbar button, contextmenu, menu item
@@ -13,4 +12,4 @@ include::{rootDir}_attributes.adoc[]
 
 This example shows how to use Permanent Pen to apply a pre-defined format (color, typeface and type style, or font) to a desired section of content overriding the default values set for that content area. For more information on the Permanent Pen plugin, see the link:{rootDir}plugins/permanentpen.html[docs].
 
-{% include codepen.html id="permanent-pen" %}
+codepen::permanent-pen[]

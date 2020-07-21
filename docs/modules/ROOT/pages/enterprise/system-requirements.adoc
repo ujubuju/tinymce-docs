@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Supported Premium Versions and Platforms
 :description: Supported versions and platforms for TinyMCE and TinyMCE premium features.
@@ -52,6 +51,7 @@ JDK 8
 === PowerPaste (Word Copy and Paste)
 
 {companynameformal} tests and supports using the PowerPaste plugin for copying content from versions of Microsoft Word and Microsoft Excel:
+
 * Covered by Microsoft Mainstream Support based on the https://support.microsoft.com/en-us/help/14085/fixed-lifecycle-policy[Microsoft Fixed Lifecycle Policy].
 * Provided by Microsoft Office 365.
 

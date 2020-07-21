@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Legacy Output plugin
 :description: Changes HTML output to old HTML syntax such as font, b and i
@@ -20,9 +19,10 @@ However, this is *not* intended for use in producing normal web content such as 
 [[example]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: "textarea",  // change this value according to your HTML
   plugins: "legacyoutput"
 });
-`
+----

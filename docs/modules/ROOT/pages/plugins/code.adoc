@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Code plugin
 :controls: toolbar button, menu item
@@ -13,14 +12,15 @@ This plugin adds a toolbar button that allows a user to edit the HTML code hidde
 [[example]]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: "textarea",  // change this value according to your HTML
   plugins: "code",
   toolbar: "code",
   menubar: "tools"
 });
-`
+----
 
 [[commands]]
 == Commands

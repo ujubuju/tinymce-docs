@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Setup inline editing mode
 :description: Understand the difference between traditional forms-based editing and advanced inline editing.
@@ -26,7 +25,7 @@ Inline editing mode does not replace the selected element with an iframe, but in
 Inline mode only works on content within a block element (such as: `div` or `h1`).
 To enable inline mode, set the `inline` option to `true`. For example:
 
-[source,html]
+[source,html,subs="+attributes"]
 ----
 <!DOCTYPE html>
 <html>
@@ -51,6 +50,6 @@ To enable inline mode, set the `inline` option to `true`. For example:
 
 The following demonstration is using four {productname} editors in inline mode, two for the headings, and two for the body text.
 
-{% include codepen.html id="inline" %}
+codepen::inline[]
 
 For information on inline mode and the `inline` setting, see: link:{rootDir}configure/editor-appearance.html#inline[User interface options - inline].

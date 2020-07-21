@@ -8,7 +8,8 @@ The `textcolor` component adds the forecolor/back color button controls that ena
 [discrete#example]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: "textarea",
   menu: {
@@ -16,14 +17,14 @@ tinymce.init({
   },
   toolbar: "forecolor backcolor"
 });
-`
+----
 
 [[options]]
 === Options
 
 These settings affect the execution of the `textcolor`. The dimensions and mapping of the grid of text colors can be set here.
 
-[[]]
+[[color_cols]]
 === `color_cols`
 
 This option allows for specifying the number of columns for text color grids. The number of rows is calculated based on the number of text colors supplied divided by the specified number of columns.
@@ -37,14 +38,17 @@ NOTE: The `textcolor_cols` and `textcolor_rows` properties have been removed in 
 [discrete#example-2]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: "textarea",  // change this value according to your HTML
   toolbar: "forecolor backcolor",
   color_cols: "5"
 });
-`
-### `color_map`
+----
+
+[[color_map]]
+=== `color_map`
 
 This option allows specifying a map of the text colors that will appear in the grid.
 
@@ -53,7 +57,8 @@ This option allows specifying a map of the text colors that will appear in the g
 [discrete#example-2]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: "textarea",  // change this value according to your HTML
   toolbar: "forecolor backcolor",
@@ -67,12 +72,13 @@ tinymce.init({
     "0000FF", "Blue"
   ]
 });
-`
+----
 
 [[the-default-color_map]]
 ==== The default color_map
 
-```js
+[source,js]
+----
 color_map: [
   '#BFEDD2', 'Light Green',
   '#FBEEB8', 'Light Yellow',
@@ -101,9 +107,9 @@ color_map: [
 '#000000', 'Black',
   '#ffffff', 'White'
 ]
-```
+----
 
-[[-2]]
+[[custom_colors]]
 === `custom_colors`
 
 This option allows disabling the custom color picker in all color swatches of the editor.
@@ -115,10 +121,11 @@ This option allows disabling the custom color picker in all color swatches of th
 [discrete#example-2]
 ===== Example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: "textarea",  // change this value according to your HTML
   toolbar: "forecolor backcolor",
   custom_colors: false
 });
-`
+----

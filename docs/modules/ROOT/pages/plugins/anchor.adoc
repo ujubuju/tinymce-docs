@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Anchor plugin
 :controls: toolbar button, menu item
@@ -16,14 +15,15 @@ When a user clicks on the anchor button or menu item they will be prompted via a
 [[anchor-plugin-example]]
 ===== Anchor plugin example
 
-`js
+[source,js]
+----
 tinymce.init({
   selector: "textarea",  // change this value according to your HTML
   plugins: "anchor",
   toolbar: "anchor",
   menubar: "insert"
 });
-`
+----
 
 [[commands]]
 == Commands

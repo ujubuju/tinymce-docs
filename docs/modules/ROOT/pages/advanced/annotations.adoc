@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Annotations
 :description: TinyMCE Annotations provides the ability to describe particular features or add general information to a piece of content and creates identifiers for each added annotation.
@@ -18,12 +17,13 @@ The primary value that the Annotations API provides is that it tags each annotat
 
 Perform the following procedure to set up the {productname} Annotations feature:
 
-[[1-configure-the-annotate-button]]
+[id="1-configure-the-annotate-button"]
 === 1. Configure the Annotate Button
 
 To configure the annotate button on your toolbar:
 
-`js
+[source,js]
+----
   setup: function(ed) {
     ed.ui.registry.addButton('annotate-alpha', {
       text: 'Annotate',
@@ -36,16 +36,17 @@ To configure the annotate button on your toolbar:
       }
     })
   }
-`
+----
 
 See link:{rootDir}configure.html[Configure {productname}] for more information on how to configure {productname} core.
 
-[[2-registering-the-annotator]]
+[id="2-registering-the-annotator"]
 === 2. Registering the Annotator
 
 The annotator API supports multiple annotation functions. Each annotation function must be registered with the annotator (`editor.annotator`).
 
-`js
+[source,js]
+----
   ed.on('init', function() {
     editor.annotator.register('alpha', {
       persistent: true,
@@ -59,23 +60,24 @@ The annotator API supports multiple annotation functions. Each annotation functi
       }
     });
   });
-`
+----
 
 This will register an annotation with the name `alpha`. In our example, when an `alpha` is being added to the document, a span marker will be created with class `alpha` and a data attribute for the author.
 
 NOTE: The data passed through here is the same as the data specified when calling the annotate API. `decorate` is used to turn the annotation data into a document object model (DOM) representation.
 The uid passed through to `decorate` is either the uid field in the data object (if it exists), or a randomly generated uid if it does not. Annotator will be responsible for putting the uid on the span. The user does not need to do that part.
 
-[[3-making-the-annotator-available]]
+[id="3-making-the-annotator-available"]
 === 3. Making the Annotator Available
 
 For adding the annotate tool to the toolbar that is registered with `alpha` set the value of the toolbar to:
 
-`js
-  toolbar: "annotate-alpha"
-`
+[source,js]
+----
+toolbar: "annotate-alpha"
+----
 
-[[4-applying-annotations]]
+[id="4-applying-annotations"]
 === 4. Applying Annotations
 
 After registering an annotation, use it by applying it to the current selection.
@@ -83,29 +85,32 @@ After registering an annotation, use it by applying it to the current selection.
 NOTE: If the selection is collapsed (single cursor rather than ranged selection) and is within a word, it will first perform a word grab function and then apply the annotation to the resulting word selection.
 The API to apply an annotation is `annotate`.  Annotations can be programmatically applied to selected text using:
 
-`js
+[source,js]
+----
   editor.annotator.annotate('alpha', {
     author: 'me'
   });
-`
+----
 
 The data passed through `{ author: 'me' }` is passed to the `decorate` function specified during registration for the particular annotation (here: alpha). This data can be any object. In this way, users can tag markers with any attributes/classes they want on a per-annotation basis. Here, we will end up with a span with a `data-author` attribute set to `me`. If the user wants, they can specify a `uid` as part of the data here. This is used instead of a randomly generated `uid` when passing through as the first argument to `decorate`.
 
 Example of specifying your own `uid`:
 
-`js
+[source,js]
+----
   editor.annotator.annotate('alpha', {
     uid: 'use-this-id-instead-of-your-random-one-annotator!',
     author: 'me'
   });
-`
+----
 
-[[5-listening-to-selection-events]]
+[id="5-listening-to-selection-events"]
 === 5. Listening to Selection Events
 
 The Annotator API notifies the user when the selection cursor moves in or out of a specified annotation. For example, for the `alpha` scenario:
 
-`js
+[source,js]
+----
 editor.annotator.annotationChanged('alpha', function (state, name, obj) {
   if (state === false) {
     // NOTE: name will be 'alpha' here
@@ -114,7 +119,7 @@ editor.annotator.annotationChanged('alpha', function (state, name, obj) {
     console.log('We are now in comment: ' + obj.uid);
   }
 });
-`
+----
 
 The `obj` parameter is only set if the `state` is true. A set `obj` has two fields:
 
@@ -123,7 +128,8 @@ The `obj` parameter is only set if the `state` is true. A set `obj` has two fiel
 
 The `annotationChanged` listeners should only fire when the state or the uid changes. The full API is:
 
-`+js
+[source,js]
+----
 /**
 * Executes the specified callback when the current selection matches the annotation or not.
 *
@@ -133,28 +139,30 @@ The `annotationChanged` listeners should only fire when the state or the uid cha
 * at the cursor changes. If state if false, data will not be provided.
 */
 annotationChanged: (name: string, callback): void
-+`
+----
 
 [[example]]
 == Example
 
 Use the following example to create the Annotate API:
 
-{% include codepen.html id="annotations" height="750" %}
+codepen::annotations[height=750]
 
 [[retrieving-all-annotations-for-a-particular-annotation-name]]
 == Retrieving All Annotations for a Particular Annotation Name
 
 The Annotator API allows retrieving an object of all of the uids for a particular annotation type (e.g. alpha), and the nodes associated with those uids. For example, to retrieve all `alpha` annotations, this code is used:
 
-`js
+[source,js]
+----
 var annotations = editor.annotator.getAll('alpha');
 var nodesInFirstUid = annotations['first-uid'];
-`
+----
 
 Assuming that there is a uid called `first-uid`, the above code shows how to access the nodes used for making that annotation. The full API is:
 
-`+js
+[source,js]
+----
 /**
 * Retrieve all the annotations for a given name
 *
@@ -162,21 +170,22 @@ Assuming that there is a uid called `first-uid`, the above code shows how to acc
 * @param {String} name the name of the annotations to retrieve
 * @return {Object} an index of annotations from uid => DOM nodes
 */
-getAll: (name)
-+`
+----
 
 [[deleting-an-annotation]]
 == Deleting an Annotation
 
 Use the `remove` API to delete a particular annotation at the cursor. It will remove the closest annotation that matches the name. For example,
 
-`js
+[source,js]
+----
 editor.annotator.remove('alpha');
-`
+----
 
 This bypasses any other annotations that might be closer to the selection cursor and removes annotations which are `alpha` annotations. If there are no annotations of that name, it will do nothing. The full API is:
 
-`+js
+[source,js]
+----
 /**
 * Removes any annotations from the current selection that match
 * the name
@@ -185,4 +194,4 @@ This bypasses any other annotations that might be closer to the selection cursor
 * @param {String} name the name of the annotation to remove
 */
 remove: (name)
-+`
+----

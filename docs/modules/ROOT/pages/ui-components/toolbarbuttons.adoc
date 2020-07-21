@@ -1,6 +1,5 @@
 :rootDir: ../
 :partialsDir: {rootDir}partials/
-:imagesDir: {rootDir}images/
 include::{rootDir}_attributes.adoc[]
 = Toolbar buttons
 :description: Add a custom buttons to the TinyMCE 5 toolbar.
@@ -36,7 +35,8 @@ To create a custom toolbar button, define and register the button within the `se
 [[example-of-adding-a-basic-button-that-triggers-an-alert-when-clicked]]
 === Example of adding a basic button that triggers an alert when clicked:
 
-`+js
+[source,js]
+----
 tinymce.init({
   selector: '#editor',
   toolbar: 'myCustomToolbarButton',
@@ -47,11 +47,11 @@ tinymce.init({
     });
   }
 });
-+`
+----
 
 [[example]]
 == Example
 
 The following example creates different types of toolbar buttons.
 
-{% include codepen.html id="toolbar-button" height="400" %}
+codepen::toolbar-button[height=400]

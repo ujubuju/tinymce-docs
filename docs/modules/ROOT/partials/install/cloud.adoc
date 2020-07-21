@@ -3,7 +3,7 @@
 
 Include this line of code in the `<head>` of your HTML page:
 
-[source,html]
+[source,html,subs="+attributes"]
 ----
 <script src="{cdnurl}" referrerpolicy="origin"></script>
 ----
@@ -17,7 +17,7 @@ Since {productname} lets you identify replaceable elements via a CSS selector, a
 
 In this example, let's replace `<textarea id='mytextarea'>` with a {productname} editor instance by passing the selector `'#mytextarea'` to `tinymce.init()`.
 
-[source,html]
+[source,html,subs="+attributes"]
 ----
 <!DOCTYPE html>
 <html>
