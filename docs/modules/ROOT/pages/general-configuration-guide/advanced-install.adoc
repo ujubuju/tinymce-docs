@@ -9,50 +9,102 @@ include::{rootDir}_attributes.adoc[]
 
 There are multiple ways to instantiate {productname}. Accessing {productname} through {cloudname} may not be the best use case for different deployment scenarios. This section explains additional installation options including package managers, self-hosted download, and other custom build options.
 
-* <<cloudinstall,{cloudname}>>
-* <<packagemanagerinstalloptions,Package Managers>>
-* <<self-hostedinstall,Self-Hosted Download / Install>>
-* <<custombuildinstall,Custom Build>>
+++++
+<style>
+.tabcontent {
+  display: none;
+}
+</style>
+++++
 
-[[cloud-install]]
-== Cloud Install
-
+.Cloud Install
+[#cloud-install.tabcontent]
+--
 include::{partialsDir}install/cloud.adoc[]
+--
 
-[[package-manager-install-options]]
-== Package Manager Install Options
-
-* <<npm,NPM>>
-* <<bower,Bower>>
-* <<composer,Composer>>
-* <<nuget,NuGet>>
-
-[[npm]]
-== NPM
-
+.NPM
+[#npm.tabcontent]
+--
 include::{partialsDir}install/npm.adoc[]
+--
 
-[[bower]]
-== Bower
-
+.Bower
+[#bower.tabcontent]
+--
 include::{partialsDir}install/bower.adoc[]
+--
 
-[[composer]]
-== Composer
-
+.Composer
+[#composer.tabcontent]
+--
 include::{partialsDir}install/composer.adoc[]
+--
 
-[[nuget]]
-== NuGet
-
+.NuGet
+[#nuget.tabcontent]
+--
 include::{partialsDir}install/nuget.adoc[]
+--
 
-[[self-hosted-install]]
-== Self-Hosted Install
-
+.Self-Hosted Install
+[#self-hosted-install.tabcontent]
+--
 include::{partialsDir}install/sdk.adoc[]
+--
 
-[[custom-build-install]]
-== Custom Build Install
-
+.Custom Build Install
+[#custom-build-install.tabcontent]
+--
 include::{partialsDir}install/custom.adoc[]
+--
+
+++++
+<script>
+var tabbedSections = document.getElementsByClassName("tabcontent");
+
+function tabbedSectionIds ( sectionCollection ) {
+  var collSize = sectionCollection.length;
+  if ( collSize === 0 ) {
+    return false;
+  } else if ( collSize === 1 ) {
+    return sectionCollection[0].id;
+  } else {
+    var idArray = [];
+    for ( i = 0; i < collSize; i++ ) {
+      idArray.push(sectionCollection[i].id);
+    }
+    return idArray;
+  }
+}
+
+var tabIds = tabbedSectionIds(tabbedSections);
+
+var span = document.createElement('span');
+
+var btn = '';
+
+for ( i = 0; i < tabIds.length ; i++ ) {
+  var buttonId = tabIds[i];
+  var buttonLabel = tabbedSections[i].getElementsByClassName("title")[0].innerHTML;
+  btn += '<button class="tablinks" onclick="asciiTab(event, \'' + buttonId + '\')">' + buttonLabel + '</button>';
+}
+span.innerHTML = btn;
+var parent_node = document.getElementById(tabIds[0]).parentNode;
+parent_node.insertBefore(span, document.getElementById(tabIds[0]));
+
+function asciiTab(evt, tabID) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabID).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+++++
