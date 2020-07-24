@@ -78,21 +78,6 @@ function tabbedSectionIds ( sectionCollection ) {
   }
 }
 
-var tabIds = tabbedSectionIds(tabbedSections);
-
-var span = document.createElement('span');
-
-var btn = '';
-
-for ( i = 0; i < tabIds.length ; i++ ) {
-  var buttonId = tabIds[i];
-  var buttonLabel = tabbedSections[i].getElementsByClassName("title")[0].innerHTML;
-  btn += '<button class="tablinks" onclick="asciiTab(event, \'' + buttonId + '\')">' + buttonLabel + '</button>';
-}
-span.innerHTML = btn;
-var parent_node = document.getElementById(tabIds[0]).parentNode;
-parent_node.insertBefore(span, document.getElementById(tabIds[0]));
-
 function asciiTab(evt, tabID) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -106,5 +91,20 @@ function asciiTab(evt, tabID) {
   document.getElementById(tabID).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+(function () {
+  var tabIds = tabbedSectionIds(tabbedSections);
+  var span = document.createElement('span');
+  var btn = '';
+  for ( i = 0; i < tabIds.length ; i++ ) {
+    var buttonId = tabIds[i];
+    var buttonLabel = tabbedSections[i].getElementsByClassName("title")[0].innerHTML;
+    btn += '<button class="tablinks" onclick="asciiTab(event, \'' + buttonId + '\')">' + buttonLabel + '</button>';
+    tabbedSections[i].getElementsByClassName("title")[0].remove();
+  }
+  span.innerHTML = btn;
+  var parent_node = document.getElementById(tabIds[0]).parentNode;
+  parent_node.insertBefore(span, document.getElementById(tabIds[0]));
+})();
 </script>
 ++++
